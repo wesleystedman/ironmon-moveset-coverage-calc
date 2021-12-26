@@ -46,7 +46,7 @@ const GENERATION_NAME_TO_NUM = {
 
 let pokemonList = [];
 
-P.getPokemonByName([...Array(3).keys()].map(x => x+1))
+P.getPokemonByName([...Array(3).keys()].map(x => x + 1))
   .then(resp => {
     resp.forEach(pokemon => {
       let reducedPokemon = {
@@ -80,22 +80,32 @@ P.getPokemonByName([...Array(3).keys()].map(x => x+1))
     });
   })
   .then(() => {
-    // console.log(pokemonList);
-    P.getEvolutionChainById([...Array(1).keys()].map(x => x+1))
+    P.getEvolutionChainById([...Array(1).keys()].map(x => x + 1))
       .then(resp => {
         resp.forEach(evoChain => {
-          let name = evoChain.chain.species.name;
-          let canEvolve = !!(evoChain.chain.evolves_to.length)
-          console.log(name, canEvolve);
-
-          if (canEvolve) {
-            // find name in pokemonList
-            // set canEvolve values
-            // despair, for I must make manual adjustments
-          }
+          processEvoChain(evoChain.chain);
         })
+        console.log(pokemonList);
       })
+      .catch(error => {
+        console.error(error);
+      });
   })
   .catch(error => {
     console.error(error);
   });
+
+
+function processEvoChain(chainUnit) {
+  let targetName = chainUnit.species.name;
+  let targetCanEvolve = !!(chainUnit.evolves_to.length);
+
+  let target = pokemonList.find(pokemon => pokemon.name === targetName);
+  VERSIONS.forEach(version => {
+    target.canEvolve[version] = targetCanEvolve;
+  });
+
+  if (targetCanEvolve) {
+    chainUnit.evolves_to.forEach(evo => processEvoChain(evo));
+  }
+}
