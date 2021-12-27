@@ -2,6 +2,7 @@
 // This breaks other things, but this script doesn't need to run except to
 // generate the Pokemon data file, so just remove it afterwards.
 import Pokedex from 'pokedex-promise-v2';
+import * as fs from 'fs';
 const P = new Pokedex();
 
 // reduced list of pokeapi game version strings,
@@ -46,7 +47,8 @@ const GENERATION_NAME_TO_NUM = {
 
 let pokemonList = [];
 
-P.getPokemonByName([...Array(3).keys()].map(x => x + 1))
+// 1-807 are base forms, 10001-10157 are alternate forms, mega evolutions, etc.
+P.getPokemonByName([...Array(807).keys()].map(x => x + 1).concat([...Array(157).keys()].map(x => x + 10001)))
   .then(resp => {
     resp.forEach(pokemon => {
       let reducedPokemon = {
@@ -75,17 +77,25 @@ P.getPokemonByName([...Array(3).keys()].map(x => x + 1))
         reducedPokemon.canEvolve[version] = false;
       });
 
-      // console.log(reducedPokemon);
       pokemonList.push(reducedPokemon);
     });
   })
   .then(() => {
-    P.getEvolutionChainById([...Array(1).keys()].map(x => x + 1))
+    // 427 is the last gen 7 family (Zeraora).  There are 8 gaps between 210 and 251, so we have to skip them to avoid 404s.
+    // Also, this data doesn't take old versions or certain forms into account, so the data will require manual intervention.
+    let chainIds = [...Array(209).keys()].map(x => x + 1).concat([
+      211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 223, 224, 228, 229, 230, 232, 
+      233, 234, 235, 236, 237, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250
+    ]).concat([...Array(176).keys()].map(x => x + 252))
+    P.getEvolutionChainById(chainIds)
       .then(resp => {
         resp.forEach(evoChain => {
           processEvoChain(evoChain.chain);
         })
-        console.log(pokemonList);
+        // console.log(pokemonList);
+      })
+      .then(() => {
+        fs.writeFileSync('pokemonData.json', JSON.stringify(pokemonList));
       })
       .catch(error => {
         console.error(error);
@@ -101,9 +111,11 @@ function processEvoChain(chainUnit) {
   let targetCanEvolve = !!(chainUnit.evolves_to.length);
 
   let target = pokemonList.find(pokemon => pokemon.name === targetName);
-  VERSIONS.forEach(version => {
-    target.canEvolve[version] = targetCanEvolve;
-  });
+  if (!!target) {
+    VERSIONS.forEach(version => {
+      target.canEvolve[version] = targetCanEvolve;
+    });
+  }
 
   if (targetCanEvolve) {
     chainUnit.evolves_to.forEach(evo => processEvoChain(evo));
