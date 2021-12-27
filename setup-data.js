@@ -95,6 +95,52 @@ P.getPokemonByName([...Array(807).keys()].map(x => x + 1).concat([...Array(157).
         // console.log(pokemonList);
       })
       .then(() => {
+        removeEvoVersions('golbat', 2);
+        removeEvoVersions('magneton', 4);
+        removeEvoVersions('farfetchd', 8);
+        removeEvoVersions('onix', 2);
+        removeEvoVersions('lickitung', 4);
+        removeEvoVersions('rhydon', 4);
+        removeEvoVersions('chansey', 2);
+        removeEvoVersions('tangela', 4);
+        removeEvoVersions('seadra', 2);
+        removeEvoVersions('mr-mime', 8);
+        removeEvoVersions('scyther', 2);
+        removeEvoVersions('electabuzz', 4);
+        removeEvoVersions('magmar', 4);
+        removeEvoVersions('porygon', 2);
+
+        removeEvoVersions('togetic', 4);
+        removeEvoVersions('aipom', 4);
+        removeEvoVersions('yanma', 4);
+        removeEvoVersions('murkrow', 4);
+        removeEvoVersions('misdreavus', 4);
+        removeEvoVersions('gligar', 4);
+        removeEvoVersions('sneasel', 4);
+        removeEvoVersions('piloswine', 4);
+        removeEvoVersions('corsola', 8);
+        removeEvoVersions('porygon2', 4);
+
+        removeEvoVersions('linoone', 8);
+        removeEvoVersions('nosepass', 4);
+        removeEvoVersions('roselia', 4);
+        removeEvoVersions('dusclops', 4);
+
+        addEvoVersions('pumpkaboo-small');
+        addEvoVersions('pumpkaboo-average');
+        addEvoVersions('pumpkaboo-large');
+        addEvoVersions('pumpkaboo-super');
+
+        addEvoVersions('rattata-alola');
+        addEvoVersions('sandshrew-alola');
+        addEvoVersions('vulpix-alola');
+        addEvoVersions('diglett-alola');
+        addEvoVersions('meowth-alola');
+        addEvoVersions('geodude-alola');
+        addEvoVersions('grimer-alola');
+        addEvoVersions('rockruff-own-tempo');
+      })
+      .then(() => {
         fs.writeFileSync('pokemonData.json', JSON.stringify(pokemonList));
       })
       .catch(error => {
@@ -120,4 +166,32 @@ function processEvoChain(chainUnit) {
   if (targetCanEvolve) {
     chainUnit.evolves_to.forEach(evo => processEvoChain(evo));
   }
+}
+
+// For pokemon that went from having no evolutions to having one or more, set older games to false
+// pokemon: String, pokeapi name
+// gen: Number 2, 4, or 8, which gen introduced the evolution
+function removeEvoVersions(targetName, evoGen) {
+  let target = pokemonList.find(pokemon => pokemon.name === targetName);
+  target.canEvolve['red-blue'] = false;
+  if (evoGen === 2) return;
+  target.canEvolve['gold-silver'] = false;
+  target.canEvolve['ruby-sapphire'] = false;
+  if (evoGen === 4) return;
+  target.canEvolve['diamond-pearl'] = false;
+  target.canEvolve['platinum'] = false;
+  target.canEvolve['black-white'] = false;
+  target.canEvolve['black-2-white-2'] = false;
+  target.canEvolve['x-y'] = false;
+  target.canEvolve['omega-ruby-alpha-sapphire'] = false;
+  target.canEvolve['sun-moon'] = false;
+  target.canEvolve['ultra-sun-ultra-moon'] = false;
+}
+
+// For pokemon that evolve but also have a form suffix, causing them to be missed by the evolution-chain data
+function addEvoVersions(targetName) {
+  let target = pokemonList.find(pokemon => pokemon.name === targetName);
+  VERSIONS.forEach(version => {
+    target.canEvolve[version] = true;
+  });
 }
