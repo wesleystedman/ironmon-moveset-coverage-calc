@@ -1,6 +1,7 @@
-// To use this script, you must first add "type": "module" to package.json.
-// This breaks other things, but this script doesn't need to run except to
-// generate the Pokemon data file, so just remove it afterwards.
+// Because pokedex-promise-v2 is pure ESM, in order to use this script,
+// you must first add "type": "module" to package.json.  Create-React-App
+// is not fully ready for that yet, so just remove that line afterwards.
+// This script is not used at runtime.
 import Pokedex from 'pokedex-promise-v2';
 import * as fs from 'fs';
 const P = new Pokedex();
@@ -45,6 +46,27 @@ const GENERATION_NAME_TO_NUM = {
   'generation-vii': 7,
 }
 
+const TYPE_TO_NUM = {
+  'normal': 0,
+  'fighting': 1,
+  'flying': 2,
+  'poison': 3,
+  'ground': 4,
+  'rock': 5,
+  'bug': 6,
+  'ghost': 7,
+  'steel': 8,
+  'fire': 9,
+  'water': 10,
+  'grass': 11,
+  'electric': 12,
+  'psychic': 13,
+  'ice': 14,
+  'dragon': 15,
+  'dark': 16,
+  'fairy': 17
+}
+
 let pokemonList = [];
 
 // 1-807 are base forms, 10001-10157 are alternate forms, mega evolutions, etc.
@@ -63,11 +85,11 @@ P.getPokemonByName([...Array(807).keys()].map(x => x + 1).concat([...Array(157).
         reducedPokemon.types[version] = [];
         if (pokemon.past_types.length > 0 && VERSION_TO_GENERATION_NUM[version] <= GENERATION_NAME_TO_NUM[pokemon.past_types[0].generation.name]) {
           pokemon.past_types[0].types.forEach(typeObj => {
-            reducedPokemon.types[version].push(typeObj.type.name);
+            reducedPokemon.types[version].push(TYPE_TO_NUM[typeObj.type.name]);
           });
         } else {
           pokemon.types.forEach(typeObj => {
-            reducedPokemon.types[version].push(typeObj.type.name);
+            reducedPokemon.types[version].push(TYPE_TO_NUM[typeObj.type.name]);
           });
         }
       });
