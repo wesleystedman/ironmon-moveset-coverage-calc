@@ -6,6 +6,7 @@ import Results from './components/Results';
 function App() {
   const [version, setVersion] = useState('ruby-sapphire');
   const [forceEvo, setForceEvo] = useState(false);
+  const [selectedMoveTypes, setSelectedMoveTypes] = useState([]);
 
   useEffect(() => {
     console.log('selected version: ', version);
@@ -21,7 +22,9 @@ function App() {
       </header>
       <Controls 
         setVersion={setVersion}
-        forceEvo={forceEvo} setForceEvo={setForceEvo} />
+        forceEvo={forceEvo} setForceEvo={setForceEvo} 
+        selectedMoveTypes={selectedMoveTypes} setSelectedMoveTypes={setSelectedMoveTypes}
+      />
       <Results />
     </div>
   );
