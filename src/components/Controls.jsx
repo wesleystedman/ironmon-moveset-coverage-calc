@@ -1,3 +1,5 @@
+import React from "react";
+
 function Controls(props) {
   return (
     <div className='Controls-container'>
