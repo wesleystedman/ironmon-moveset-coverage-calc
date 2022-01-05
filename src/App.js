@@ -3,7 +3,7 @@ import './App.css';
 import Controls from './components/Controls';
 import Results from './components/Results';
 
-const POKEMON_DATA = require('../pokemonData.json');
+const POKEMON_DATA = require('./pokemonData.json');
 
 const POKEMON_RANGES = {
   'red-blue': [...Array(151).keys()],
@@ -32,7 +32,7 @@ function App() {
 
   function calculate() {
     POKEMON_RANGES[version].forEach(index => {
-
+      console.log(POKEMON_DATA[index]);
     })
   }
 
