@@ -71,3 +71,5 @@ const typeCharts = {
 function getTypeEffectiveness(chartName, attackingType, defenderTypes) {
     return defenderTypes.reduce((acc, defenderType) => acc * typeCharts[chartName][attackingType][defenderType], 1.0);
 }
+
+export default getTypeEffectiveness;
