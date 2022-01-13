@@ -1,0 +1,19 @@
+.Results-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.Results-header-unit {
+  margin: 0.5rem;
+  width: 6rem;
+  text-align: center;
+}
+
+.Results-header-unit > h4 {
+  margin: 0.5em;
+  font-size: 1.25rem;
+}
+
+.Results-header-count {
+  font-size: 2rem;
+}

@@ -1,30 +1,31 @@
 import React from "react";
+import './Results.css';
 
 function Results(props) {
   return (
     <div className='Results-container'>
       <div className='Results-header'>
-        <div className='Results-header-container'>
+        <div className='Results-header-unit'>
           <h4>0.0x</h4>
           <div className='Results-header-count'>{props.resultArrays['0'].length}</div>
         </div>
-        <div className='Results-header-container'>
+        <div className='Results-header-unit'>
           <h4>0.25x</h4>
           <div className='Results-header-count'>{props.resultArrays['0.25'].length}</div>
         </div>
-        <div className='Results-header-container'>
+        <div className='Results-header-unit'>
           <h4>0.5x</h4>
           <div className='Results-header-count'>{props.resultArrays['0.5'].length}</div>
         </div>
-        <div className='Results-header-container'>
+        <div className='Results-header-unit'>
           <h4>1.0x</h4>
           <div className='Results-header-count'>{props.resultArrays['1'].length}</div>
         </div>
-        <div className='Results-header-container'>
+        <div className='Results-header-unit'>
           <h4>2.0x</h4>
           <div className='Results-header-count'>{props.resultArrays['2'].length}</div>
         </div>
-        <div className='Results-header-container'>
+        <div className='Results-header-unit'>
           <h4>4.0x</h4>
           <div className='Results-header-count'>{props.resultArrays['4'].length}</div>
         </div>
