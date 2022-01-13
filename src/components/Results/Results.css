@@ -1,3 +1,4 @@
+/* Results Header */
 .Results-header {
   display: flex;
   flex-direction: row;
@@ -16,4 +17,15 @@
 
 .Results-header-count {
   font-size: 2rem;
+}
+
+/* Result Sprites */
+.Results-section-header > h3 {
+  font-size: 1.5rem;
+}
+
+.Results-section-content > img {
+  /* original sprites are 96px by 96px */
+  width: 80px;
+
 }
