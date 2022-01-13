@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './App.css';
-import Controls from './components/Controls';
-import Results from './components/Results';
+import Controls from './components/Controls/Controls';
+import Results from './components/Results/Results';
 import getTypeEffectiveness from "./type-effectiveness";
 
 const POKEMON_DATA = require('./pokemonData.json');

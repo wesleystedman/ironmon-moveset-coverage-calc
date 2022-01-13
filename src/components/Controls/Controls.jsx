@@ -1,6 +1,6 @@
 import React from "react";
-import VersionControls from "./VersionControls";
-import TypeControls from "./TypeControls";
+import VersionControls from "../VersionControls/VersionControls";
+import TypeControls from "../TypeControls/TypeControls";
 
 function Controls(props) {
   return (
