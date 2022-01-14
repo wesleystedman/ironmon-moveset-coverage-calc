@@ -2,6 +2,7 @@
 .Results-header {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .Results-header-unit {
@@ -11,7 +12,7 @@
 }
 
 .Results-header-unit > h4 {
-  margin: 0.5em;
+  margin: 0.5em auto;
   font-size: 1.25rem;
 }
 
