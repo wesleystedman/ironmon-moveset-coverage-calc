@@ -1,0 +1,15 @@
+.Controls-types {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: calc(9 * calc(7.1rem + 2px));
+}
+
+.type-button {
+  padding: 0.5rem;
+  width: 5.1rem;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+}

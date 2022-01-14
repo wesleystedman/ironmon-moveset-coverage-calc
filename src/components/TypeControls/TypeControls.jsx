@@ -1,4 +1,5 @@
 import React from "react";
+import './TypeControls.css';
 
 function TypeControls(props) {
   function handleChange(event) {
