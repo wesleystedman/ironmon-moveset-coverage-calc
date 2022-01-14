@@ -1,0 +1,15 @@
+.Controls-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 0.5rem;
+}
+
+.Controls-calc {
+  align-self: center;
+  font-size: 1.25rem;
+}
+
+.Controls-evolved {
+  align-self: center;
+}

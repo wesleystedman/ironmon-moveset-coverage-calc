@@ -1,4 +1,5 @@
 import React from "react";
+import './VersionControls.css';
 
 function VersionControls(props) {
   return (

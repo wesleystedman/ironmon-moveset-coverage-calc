@@ -1,6 +1,7 @@
 import React from "react";
 import VersionControls from "../VersionControls/VersionControls";
 import TypeControls from "../TypeControls/TypeControls";
+import './Controls.css';
 
 function Controls(props) {
   return (
