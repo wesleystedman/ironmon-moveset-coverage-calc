@@ -7,17 +7,17 @@ import getTypeEffectiveness from "./type-effectiveness";
 const POKEMON_DATA = require('./pokemonData.json');
 
 const POKEMON_RANGES = {
-  'red-blue': [...Array(151).keys()],
-  'gold-silver': [...Array(251).keys()],
-  'ruby-sapphire': [...Array(386).keys()],
-  'diamond-pearl': [...Array(493).keys()],
-  'platinum': [...Array(493).keys()],
-  'black-white': [...Array(649).keys()],
-  'black-2-white-2': [...Array(649).keys()],
-  'x-y': [...Array(721).keys()],
-  'omega-ruby-alpha-sapphire': [...Array(721).keys()],
-  'sun-moon': [...Array(802).keys()],
-  'ultra-sun-ultra-moon': [...Array(807).keys()],
+  'red-blue': range(0, 150),
+  'gold-silver': range(0, 250),
+  'ruby-sapphire': range(0, 385),
+  'diamond-pearl': range(0, 492),
+  'platinum': range(0, 492).concat(range(807, 812), range(814, 818)),
+  'black-white': range(0, 648).concat(range(807, 824)),
+  'black-2-white-2': range(0, 648).concat(range(807, 829)),
+  'x-y': range(0, 720).concat(range(807, 869)),
+  'omega-ruby-alpha-sapphire': range(0, 720).concat(range(807, 885), range(892, 896)),
+  'sun-moon': range(0, 801).concat(range(807, 885), range(892, 898), range(906, 921), 923, 924, 926, range(929, 933), 942),
+  'ultra-sun-ultra-moon': range(0, 885).concat(range(892, 898), range(906, 921), 923, 924, 926, range(929, 933), 942, 958, range(961, 963)),
 }
 
 const VERSION_TO_TYPE_CHART = {
@@ -32,6 +32,11 @@ const VERSION_TO_TYPE_CHART = {
   'omega-ruby-alpha-sapphire': 'gen6',
   'sun-moon': 'gen6',
   'ultra-sun-ultra-moon': 'gen6',
+}
+
+// generate an array of integers from start to end, inclusive
+function range(start, end) {
+  return [...Array(end - start + 1).keys()].map(x => x + start);
 }
 
 function App() {
