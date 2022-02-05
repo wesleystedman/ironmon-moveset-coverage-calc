@@ -43,7 +43,14 @@ function TypeControls(props) {
     <div className='Controls-types'>
       {TYPES.map((type, index) => (
         <div className="type-button" style={TYPE_COLORS[index]} key={type} onClick={handleDivButtonClick}>
-          <input type="checkbox" name={`type-${type.toLowerCase()}`} id={`type-${type.toLowerCase()}`} value={index} onChange={handleChange} />
+          <input 
+            type="checkbox"
+            name={`type-${type.toLowerCase()}`}
+            id={`type-${type.toLowerCase()}`}
+            value={index}
+            onChange={handleChange}
+            disabled={(props.version === 'red-blue' && ['Steel','Dark','Fairy'].includes(type)) || (type === 'Fairy' && ['gold-silver','ruby-sapphire','diamond-pearl','platinum','black-white','black-2-white-2'].includes(props.version))}
+          />
           <label htmlFor={`type-${type.toLowerCase()}`}>{type}</label>
         </div>
       ))}

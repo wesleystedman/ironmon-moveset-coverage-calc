@@ -96,6 +96,7 @@ function App() {
         </h1>
       </header>
       <Controls
+        version={version}
         setVersion={setVersion}
         forceEvo={forceEvo} setForceEvo={setForceEvo}
         selectedMoveTypes={selectedMoveTypes} setSelectedMoveTypes={setSelectedMoveTypes}

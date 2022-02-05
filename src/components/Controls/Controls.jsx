@@ -12,7 +12,7 @@ function Controls(props) {
           onChange={() => props.setForceEvo(!props.forceEvo)} />
         <label htmlFor="force-fully-evolved">Show only fully evolved Pokemon</label>
       </div>
-      <TypeControls selectedMoveTypes={props.selectedMoveTypes} setSelectedMoveTypes={props.setSelectedMoveTypes} />
+      <TypeControls version={props.version} selectedMoveTypes={props.selectedMoveTypes} setSelectedMoveTypes={props.setSelectedMoveTypes} />
       <button className="Controls-calc" onClick={props.calculate}>Calculate</button>
     </div>
   );
