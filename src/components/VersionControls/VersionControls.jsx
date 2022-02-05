@@ -4,7 +4,7 @@ import './VersionControls.css';
 function VersionControls(props) {
   return (
     <div className='Controls-version'>
-      <label htmlFor="version-select">Version:</label>
+      <label htmlFor="version-select">Version: </label>
       <select name="version-select" id="version-select" defaultValue="ruby-sapphire" onChange={(event) => { props.setVersion(event.target.value) }}>
         <option value="red-blue">Red / Blue / Yellow</option>
         <option value="gold-silver">Gold / Silver / Crystal</option>
