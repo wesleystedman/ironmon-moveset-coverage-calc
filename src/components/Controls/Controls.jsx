@@ -6,7 +6,7 @@ import './Controls.css';
 function Controls(props) {
   return (
     <div className='Controls-container'>
-      <VersionControls setVersion={props.setVersion} />
+      <VersionControls setVersion={props.setVersion} selectedMoveTypes={props.selectedMoveTypes} setSelectedMoveTypes={props.setSelectedMoveTypes} />
       <div className="Controls-evolved">
         <input type="checkbox" name="force-fully-evolved" id="force-fully-evolved" 
           onChange={() => props.setForceEvo(!props.forceEvo)} />
