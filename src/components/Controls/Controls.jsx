@@ -6,13 +6,13 @@ import './Controls.css';
 function Controls(props) {
   return (
     <div className='Controls-container'>
-      <VersionControls setVersion={props.setVersion} />
+      <VersionControls setVersion={props.setVersion} selectedMoveTypes={props.selectedMoveTypes} setSelectedMoveTypes={props.setSelectedMoveTypes} />
       <div className="Controls-evolved">
         <input type="checkbox" name="force-fully-evolved" id="force-fully-evolved" 
           onChange={() => props.setForceEvo(!props.forceEvo)} />
         <label htmlFor="force-fully-evolved">Show only fully evolved Pokemon</label>
       </div>
-      <TypeControls selectedMoveTypes={props.selectedMoveTypes} setSelectedMoveTypes={props.setSelectedMoveTypes} />
+      <TypeControls version={props.version} selectedMoveTypes={props.selectedMoveTypes} setSelectedMoveTypes={props.setSelectedMoveTypes} />
       <button className="Controls-calc" onClick={props.calculate}>Calculate</button>
     </div>
   );
