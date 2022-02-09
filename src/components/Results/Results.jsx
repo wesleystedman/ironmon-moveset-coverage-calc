@@ -39,6 +39,7 @@ function Results(props) {
         <input type="range" name="sprite-size" id="sprite-size"
                min="16" max="96" step="8" defaultValue="80"
                onChange={(event) => setSpriteSize(event.target.value + 'px')} />
+        <span>{spriteSize}</span>
       </div>
 
       <div className='Results-section'>

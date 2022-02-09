@@ -1,8 +1,8 @@
 /* Results Header */
 .Results-header {
   display: flex;
-  flex-direction: row;
   justify-content: center;
+  margin-bottom: 10px; /* equalize top-bottom margins, give the sprite size slider some space */
 }
 
 .Results-header-unit {
@@ -20,13 +20,13 @@
   font-size: 2rem;
 }
 
+.Results-size {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+}
+
 /* Result Sprites */
 .Results-section-header > h3 {
   font-size: 1.5rem;
-}
-
-.Results-section-content > img {
-  /* original sprites are 96px by 96px */
-  width: 80px;
-
 }
