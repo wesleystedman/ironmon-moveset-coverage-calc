@@ -32,7 +32,3 @@ The calculator is hosted using GitHub Pages at https://wesleystedman.github.io/i
   - Notably, because this version is pure ESM, it's not really compatible with Create-React-App.  In hindsight, I should have used an older version.
 - [gh-pages](https://www.npmjs.com/package/gh-pages)
 - and the usual suspects, HTML, CSS, and JavaScript
-
-## Known Issues
-
-- Dark, Steel, and Fairy type checkboxes are not disabled when that type does not exist in the chosen version.  If these types are selected with those version(s), the calculate button will not update the results.
