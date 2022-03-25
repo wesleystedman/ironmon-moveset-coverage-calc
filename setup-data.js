@@ -189,7 +189,7 @@ P.getPokemonByName([...Array(807).keys()].map(x => x + 1).concat([...Array(157).
           if (pokemon.name === 'altaria') pokemon.types['renegade-platinum'] = [TYPE_TO_NUM['dragon'], TYPE_TO_NUM['fairy']];
           if (pokemon.name === 'seviper') pokemon.types['renegade-platinum'] = [TYPE_TO_NUM['poison'], TYPE_TO_NUM['dark']];
           if (pokemon.name === 'milotic') pokemon.types['renegade-platinum'] = [TYPE_TO_NUM['water'], TYPE_TO_NUM['fairy']];
-          if (pokemon.name === 'glalie') pokemon.types['renegade-platinum'] = [TYPE_TO_NUM['ice'], TYPE_TO_NUM['Rock']];
+          if (pokemon.name === 'glalie') pokemon.types['renegade-platinum'] = [TYPE_TO_NUM['ice'], TYPE_TO_NUM['rock']];
           if (pokemon.name === 'luvdisc') pokemon.types['renegade-platinum'] = [TYPE_TO_NUM['water'], TYPE_TO_NUM['fairy']];
           if (pokemon.name === 'luxray') pokemon.types['renegade-platinum'] = [TYPE_TO_NUM['electric'], TYPE_TO_NUM['dark']];
           if (pokemon.name === 'lopunny') pokemon.types['renegade-platinum'] = [TYPE_TO_NUM['normal'], TYPE_TO_NUM['fighting']];
