@@ -48,6 +48,9 @@ function VersionControls(props) {
           <option value="sun-moon">Sun / Moon</option>
           <option value="ultra-sun-ultra-moon">Ultra Sun / Ultra Moon</option>
         </optgroup>
+        <optgroup label="Romhacks">
+          <option value="renegade-platinum">Renegade Platinum</option>
+        </optgroup>
       </select>
     </div>
   )

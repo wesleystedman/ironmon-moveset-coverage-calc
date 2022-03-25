@@ -18,6 +18,7 @@ const POKEMON_RANGES = {
   'omega-ruby-alpha-sapphire': range(0, 720).concat(range(807, 885), range(892, 896)),
   'sun-moon': range(0, 801).concat(range(807, 885), range(892, 898), range(906, 921), 923, 924, 926, range(929, 933), 942),
   'ultra-sun-ultra-moon': range(0, 885).concat(range(892, 898), range(906, 921), 923, 924, 926, range(929, 933), 942, 958, range(961, 963)),
+  'renegade-platinum': range(0, 492).concat(range(807, 812), range(814, 818)), // same as platinum
 }
 
 const VERSION_TO_TYPE_CHART = {
@@ -32,6 +33,7 @@ const VERSION_TO_TYPE_CHART = {
   'omega-ruby-alpha-sapphire': 'gen6',
   'sun-moon': 'gen6',
   'ultra-sun-ultra-moon': 'gen6',
+  'renegade-platinum': 'gen6',
 }
 
 // generate an array of integers from start to end, inclusive
