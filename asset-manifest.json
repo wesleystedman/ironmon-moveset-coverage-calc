@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ironmon-moveset-coverage-calc/static/css/main.a8f3d57b.css",
-    "main.js": "/ironmon-moveset-coverage-calc/static/js/main.658199dc.js",
+    "main.js": "/ironmon-moveset-coverage-calc/static/js/main.c55ab5cc.js",
     "static/js/787.1064c74d.chunk.js": "/ironmon-moveset-coverage-calc/static/js/787.1064c74d.chunk.js",
     "index.html": "/ironmon-moveset-coverage-calc/index.html",
     "main.a8f3d57b.css.map": "/ironmon-moveset-coverage-calc/static/css/main.a8f3d57b.css.map",
-    "main.658199dc.js.map": "/ironmon-moveset-coverage-calc/static/js/main.658199dc.js.map",
+    "main.c55ab5cc.js.map": "/ironmon-moveset-coverage-calc/static/js/main.c55ab5cc.js.map",
     "787.1064c74d.chunk.js.map": "/ironmon-moveset-coverage-calc/static/js/787.1064c74d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a8f3d57b.css",
-    "static/js/main.658199dc.js"
+    "static/js/main.c55ab5cc.js"
   ]
 }
