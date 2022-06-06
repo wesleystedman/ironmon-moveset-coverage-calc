@@ -161,6 +161,7 @@ P.getPokemonByName([...Array(807).keys()].map(x => x + 1).concat([...Array(157).
         addEvoVersions('diglett-alola');
         addEvoVersions('meowth-alola');
         addEvoVersions('geodude-alola');
+        addEvoVersions('graveler-alola');
         addEvoVersions('grimer-alola');
         addEvoVersions('rockruff-own-tempo');
       })
