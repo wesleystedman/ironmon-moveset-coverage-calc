@@ -2,7 +2,7 @@
 
 A Pokemon moveset coverage calculator designed to be used by players of the Ironmon Challenge.
 
-The [Ironmon Challenge](https://pastebin.com/L48bttfz), created by Twitch streamer [iateyourpie](https://twitch.tv/iateyourpie), is a very difficult set of self-imposed rules for playing a [randomized](https://github.com/Ajarmar/universal-pokemon-randomizer-zx) Pokemon game.
+The [Ironmon Challenge](http://ironmon.gg), created by Twitch streamer [iateyourpie](https://twitch.tv/iateyourpie), is a very difficult set of self-imposed rules for playing a [randomized](https://github.com/Ajarmar/universal-pokemon-randomizer-zx) Pokemon game.
 
 ### What makes this calculator better for Ironmon (and other randomized playthroughs) than other calculators?
 
