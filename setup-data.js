@@ -150,6 +150,9 @@ P.getPokemonByName([...Array(807).keys()].map(x => x + 1).concat([...Array(157).
         removeEvoVersions('roselia', 4);
         removeEvoVersions('dusclops', 4);
 
+        // Pokeapi evo family data puts Phione and Manaphy in the same family.  Without this adjustment, this script thinks Phione is not fully evolved.
+        removeEvoVersions('phione', 100);
+
         addEvoVersions('pumpkaboo-small');
         addEvoVersions('pumpkaboo-average');
         addEvoVersions('pumpkaboo-large');
